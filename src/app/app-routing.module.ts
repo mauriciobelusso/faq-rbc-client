@@ -3,7 +3,6 @@ import { Routes, RouterModule } from '@angular/router';
 import { PrincipalComponent } from './principal/principal.component';
 import { CategoriaComponent } from './categoria/categoria.component';
 import { CasoComponent } from './caso/caso.component';
-import { ProdutoComponent } from './produto/produto.component';
 import { LoginComponent } from './login/login.component';
 import { LoginService } from './login/login.service';
 
@@ -13,10 +12,9 @@ const routes: Routes = [{
       { path: 'principal', component: PrincipalComponent },
       { path: '', redirectTo: 'principal', pathMatch: 'full' },
       { path: 'categoria', component: CategoriaComponent },
-      { path: 'caso', component: CasoComponent },
-      {
-        path: 'produto',
-        component: ProdutoComponent,
+      { 
+        path: 'caso', 
+        component: CasoComponent, 
         data: { roles: ['ROLE_ADMIN', 'ROLE_USER'] }
       }
     ]

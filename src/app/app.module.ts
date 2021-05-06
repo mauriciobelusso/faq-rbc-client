@@ -26,11 +26,9 @@ import { LoginService } from './login/login.service';
 import { MenuComponent } from './menu/menu.component';
 import { PrincipalComponent } from './principal/principal.component';
 import { CasoComponent } from './caso/caso.component';
-import { ProdutoComponent } from './produto/produto.component';
 
 import { CategoriaService } from './categoria/categoria.service';
 import { CasoService } from './caso/caso.service';
-import { ProdutoService } from './produto/produto.service';
 import { LoginModule } from './login/login.module';
 import { CategoriaComponent } from './categoria/categoria.component';
 import {MatButtonModule} from '@angular/material/button';
@@ -45,8 +43,7 @@ import { HttpClientInterceptor } from './http-client-interceptor';
     MenuComponent,
     PrincipalComponent,
     CategoriaComponent,
-    CasoComponent,
-    ProdutoComponent  
+    CasoComponent
   ],
   imports: [
     BrowserModule,
@@ -77,7 +74,6 @@ import { HttpClientInterceptor } from './http-client-interceptor';
     ConfirmationService,
     MessageService,
     CasoService,
-    ProdutoService,
     LoginService,
     {
       provide: HTTP_INTERCEPTORS,
