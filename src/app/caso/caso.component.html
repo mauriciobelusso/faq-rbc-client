@@ -41,6 +41,7 @@
           <p-table [value]="casoEdit.atributos" [paginator]="true" [rows]="5" [rowsPerPageOptions]="[5,10,20]" dataKey="id" editMode="row">
             <ng-template pTemplate="header">
               <tr>
+                <th>Código</th>
                 <th>Descrição</th>
                 <th>Peso</th>
                 <th>Ações</th>
@@ -50,6 +51,7 @@
               <tr>
                 <td>{{atributo.id}}</td>
                 <td>{{atributo.descricao}}</td>
+                <td>{{atributo.peso}}</td>
                 <td>
                   <button type="button" class="btn btn-dark" (click)="editDetail(atributo)">
                     Editar
