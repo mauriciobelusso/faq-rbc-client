@@ -15,7 +15,7 @@ export class CasoSimilaridadeComponent implements OnInit {
   constructor(private casoSimilaridadeService: CasoSimilaridadeService) { }
 
   ngOnInit() {
-    //this.findAll();
+    this.search = "";
   }
 
   findAll() {
