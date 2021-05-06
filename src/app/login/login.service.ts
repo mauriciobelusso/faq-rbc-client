@@ -45,7 +45,6 @@ export class LoginService implements CanActivate {
     const login = new Login();
     login.username = username;
     login.password = password;
-    //console.log(login)
     return this.http.post<AccessToken>(`${environment.api}/auth`,
     login)
       .pipe(

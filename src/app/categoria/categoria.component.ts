@@ -20,7 +20,6 @@ export class CategoriaComponent implements OnInit {
   }
 
   findAll() {
-    console.log(this.search)
     this.categoriaService.search(this.search).subscribe( e => this.categorias = e);
     //this.categoriaService.search();
   }

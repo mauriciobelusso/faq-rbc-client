@@ -102,7 +102,6 @@ export class CasoComponent implements OnInit {
   }
 
   saveDetail() {
-    console.log(this.atributoEdit)
     if (this.atributoEdit.id > 0) {
       this.casoEdit.atributos.forEach((attr, index) => {
         if (this.atributoEdit.id === attr.id) {
