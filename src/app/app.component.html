@@ -1,0 +1,5 @@
+<app-menu *ngIf="isAuthenticated"></app-menu>
+<main>
+  <router-outlet></router-outlet>
+</main>
+<p-toast position="top-center" [baseZIndex]="1000"></p-toast>

@@ -1,0 +1,25 @@
+<div class="container">
+  <h1 class="d-flex">Cadastro de Gêneros</h1>
+  <div class="search-caso">
+    <input class="form-control" id="busca" type="text" name="search" autocomplete="off" placeholder="Digite para buscar" [(ngModel)]="search">    
+  </div>
+  <div>
+    <button mat-button color="primary"  (click)="findAll()" >Buscar</button>
+  </div>
+  <p-table [value]="categorias" [paginator]="true" [rows]="5">
+    <ng-template pTemplate="header">
+      <tr>
+        <th>Titulo</th>
+        <th>Conteudo</th>
+        <th>Similaridade</th>
+      </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-categoria>
+      <tr>
+         <td>{{categoria.caso.titulo}}</td>
+        <td>{{categoria.caso.conteudo}}</td>
+        <td>{{categoria.similaridade}}</td> 
+      </tr>
+    </ng-template>
+  </p-table>
+</div>
