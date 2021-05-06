@@ -36,6 +36,7 @@ export class CasoComponent implements OnInit {
 
   newEntity() {
     this.casoEdit = new Caso();
+    this.casoEdit.atributos = [];
     this.showDialog = true;
   }
 
@@ -102,14 +103,14 @@ export class CasoComponent implements OnInit {
 
   saveDetail() {
     console.log(this.atributoEdit)
-    if (this.atributoEdit.id > 0) 
+    if (this.atributoEdit.id > 0) {
       this.casoEdit.atributos.forEach((attr, index) => {
-        console.log(attr)
         if (this.atributoEdit.id === attr.id) {
-          this.casoEdit.atributos.slice(index, 1);
+          this.casoEdit.atributos.splice(index, 1);
           this.casoEdit.atributos.push(this.atributoEdit);
         }
       })
+    }
     else
       this.casoEdit.atributos.push(this.atributoEdit);
     this.showDialogDetail = false;
@@ -123,7 +124,7 @@ export class CasoComponent implements OnInit {
       rejectLabel: 'Cancelar',
       accept: () => {
         this.casoEdit.atributos.forEach((attr, index) => {
-          if (atributo == attr) this.casoEdit.atributos.slice(index, 1);
+          if (atributo == attr) this.casoEdit.atributos.splice(index, 1);
         })
       }
     });

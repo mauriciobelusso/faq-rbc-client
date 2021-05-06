@@ -19,7 +19,7 @@
             Editar
           </button>
 
-          <button type="button" class="btn btn-danger" (click)="delete(caso)">
+          <button type="button" id="delete" name="delete" class="btn btn-danger" (click)="delete(caso)">
             Remover
           </button>
         </td>
@@ -55,7 +55,7 @@
                     Editar
                   </button>
         
-                  <button type="button" class="btn btn-danger" (click)="deleteDetail(atributo)">
+                  <button type="button" id="deleteDetail" name="deleteDetail" class="btn btn-danger" (click)="deleteDetail(atributo)">
                     Remover
                   </button>
                 </td>
@@ -71,7 +71,6 @@
     </p-footer>
   </p-dialog>
   
-  <p-confirmDialog></p-confirmDialog>
   <p-dialog header="Cadastro 1" [(visible)]="showDialogDetail" modal="modal" [responsive]="true">
     <div class="row">
       <div class="col-sm-12">
