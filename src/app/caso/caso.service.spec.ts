@@ -1,12 +1,12 @@
 import { TestBed } from '@angular/core/testing';
 
-import { MarcaService } from './marca.service';
+import { CasoService } from './caso.service';
 
-describe('MarcaService', () => {
+describe('CasoService', () => {
   beforeEach(() => TestBed.configureTestingModule({}));
 
   it('should be created', () => {
-    const service: MarcaService = TestBed.get(MarcaService);
+    const service: CasoService = TestBed.get(CasoService);
     expect(service).toBeTruthy();
   });
 });

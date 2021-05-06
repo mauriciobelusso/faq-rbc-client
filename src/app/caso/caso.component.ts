@@ -1,22 +1,20 @@
 import { Component, OnInit } from '@angular/core';
-import { Marca } from '../model/marca';
 import { Message, ConfirmationService, MessageService } from 'primeng/api';
-import { MarcaService } from './marca.service';
+import { CasoService } from './caso.service';
 import { Caso } from '../model/caso';
 import {MatDialog} from '@angular/material/dialog';
 import { Atributo } from '../model/atributo';
 
 @Component({
-  selector: 'app-marca',
-  templateUrl: './marca.component.html',
-  styleUrls: ['./marca.component.scss']
+  selector: 'app-caso',
+  templateUrl: './caso.component.html',
+  styleUrls: ['./caso.component.scss']
 })
-export class MarcaComponent implements OnInit {
+export class CasoComponent implements OnInit {
 
-  marcas: Caso[];
-  atributos: Atributo[];
+  casos: Caso[];
 
-  marcaEdit = new Caso();
+  casoEdit = new Caso();
   atributoEdit = new Atributo();
 
   showDialog = false;
@@ -24,7 +22,7 @@ export class MarcaComponent implements OnInit {
 
   msgs: Message[] = [];
 
-  constructor(private marcaService: MarcaService,
+  constructor(private casoService: CasoService,
               private confirmationService: ConfirmationService,
               private messageService: MessageService) { }
 
@@ -33,11 +31,11 @@ export class MarcaComponent implements OnInit {
   }
 
   findAll() {
-    this.marcaService.findAll().subscribe( e => this.marcas = e);
+    this.casoService.findAll().subscribe( e => this.casos = e);
   }
 
   newEntity() {
-    this.marcaEdit = new Caso();
+    this.casoEdit = new Caso();
     this.showDialog = true;
   }
 
@@ -45,15 +43,14 @@ export class MarcaComponent implements OnInit {
     this.showDialog = false;
   }
 
-  edit(marca: Caso) {
-    this.marcaEdit = Object.assign({}, marca);
+  edit(caso: Caso) {
+    this.casoEdit = Object.assign({}, caso);
     this.showDialog = true;
-    this.atributos = marca.atributos;
   }
 
   save() {
-    this.marcaService.save(this.marcaEdit).subscribe(e => {
-      this.marcaEdit = new Caso();
+    this.casoService.save(this.casoEdit).subscribe(e => {
+      this.casoEdit = new Caso();
       this.findAll();
       this.showDialog = false;
       this.messageService.add({severity: 'success', summary: 'Confirmado',
@@ -65,14 +62,14 @@ export class MarcaComponent implements OnInit {
     });
   }
 
-  delete(marca: Caso) {
+  delete(caso: Caso) {
     this.confirmationService.confirm({
       message: 'Esta ação não poderá ser desfeita!',
       header: 'Deseja remover o registro?',
       acceptLabel: 'Confirmar',
       rejectLabel: 'Cancelar',
       accept: () => {
-        this.marcaService.delete(marca.id).subscribe(() => {
+        this.casoService.delete(caso.id).subscribe(() => {
           this.findAll();
           this.messageService.add({severity: 'success', summary: 'Confirmado',
                     detail: 'Registro removido com sucesso!'});
@@ -99,40 +96,35 @@ export class MarcaComponent implements OnInit {
   }
 
   editDetail(atributo: Atributo) {
-    // this.atributoEdit = Object.assign({}, atributo);
-    this.atributoEdit = atributo;
+    this.atributoEdit = Object.assign({}, atributo);
     this.showDialogDetail = true;
   }
 
   saveDetail() {
-    this.marcaService.save(this.marcaEdit).subscribe(e => {
-      this.marcaEdit = new Caso();
-      this.findAll();
-      this.showDialog = false;
-      this.messageService.add({severity: 'success', summary: 'Confirmado',
-            detail: 'Registro salvo com sucesso!'});
-    },
-      error => {
-      this.messageService.add({severity: 'error', summary: 'Erro',
-            detail: 'Falha ao salvar o registro!'});
-    });
+    console.log(this.atributoEdit)
+    if (this.atributoEdit.id > 0) 
+      this.casoEdit.atributos.forEach((attr, index) => {
+        console.log(attr)
+        if (this.atributoEdit.id === attr.id) {
+          this.casoEdit.atributos.slice(index, 1);
+          this.casoEdit.atributos.push(this.atributoEdit);
+        }
+      })
+    else
+      this.casoEdit.atributos.push(this.atributoEdit);
+    this.showDialogDetail = false;
   }
 
-  deleteDetail(marca: Atributo) {
+  deleteDetail(atributo: Atributo) {
     this.confirmationService.confirm({
       message: 'Esta ação não poderá ser desfeita!',
       header: 'Deseja remover o registro?',
       acceptLabel: 'Confirmar',
       rejectLabel: 'Cancelar',
       accept: () => {
-        this.marcaService.delete(marca.id).subscribe(() => {
-          this.findAll();
-          this.messageService.add({severity: 'success', summary: 'Confirmado',
-                    detail: 'Registro removido com sucesso!'});
-        }, error => {
-          this.messageService.add({severity: 'error', summary: 'Erro',
-                    detail: 'Falha ao remover o registro!'});
-        });
+        this.casoEdit.atributos.forEach((attr, index) => {
+          if (atributo == attr) this.casoEdit.atributos.slice(index, 1);
+        })
       }
     });
   }

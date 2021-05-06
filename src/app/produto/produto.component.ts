@@ -4,11 +4,8 @@ import { ProdutoService } from './produto.service';
 import { ConfirmationService, Message, LazyLoadEvent, MessageService } from 'primeng/api';
 import { Categoria } from '../model/categoria';
 import { CategoriaService } from '../categoria/categoria.service';
-import { Marca } from '../model/marca';
-import { MarcaService } from '../marca/marca.service';
 import { Table } from 'primeng/table';;
 import { environment } from 'src/environments/environment';
-import { Caso } from '../model/caso';
 
 @Component({
   selector: 'app-produto',
@@ -29,8 +26,6 @@ export class ProdutoComponent implements OnInit {
   msgs: Message[] = [];
 
   categorias: Categoria[];
-  marcas: Caso[];
-  marcasFiltered: Caso[];
 
   br: any;
 
@@ -42,7 +37,6 @@ export class ProdutoComponent implements OnInit {
   constructor(private produtoService: ProdutoService,
               private confirmationService: ConfirmationService,
               private categoriaService: CategoriaService,
-              private marcaService: MarcaService,
               private messageService: MessageService) { }
 
   ngOnInit() {
@@ -63,7 +57,7 @@ export class ProdutoComponent implements OnInit {
 
   carregarCombos() {
     //this.categoriaService.findAll().subscribe(e => this.categorias  = e );
-    this.marcaService.findAll().subscribe(e => this.marcas = e);
+    // this.marcaService.findAll().subscribe(e => this.marcas = e);
   }
 
   findAllPaged(page: number, size: number) {
@@ -92,9 +86,9 @@ export class ProdutoComponent implements OnInit {
   }
 
   search(event) {
-    this.marcasFiltered = this.marcas.filter(
-      p => p.conteudo.toLocaleLowerCase().includes(event.query.toLocaleLowerCase())
-     );
+    // this.marcasFiltered = this.marcas.filter(
+    //   p => p.conteudo.toLocaleLowerCase().includes(event.query.toLocaleLowerCase())
+    //  );
   }
 
   edit(produto: Produto) {

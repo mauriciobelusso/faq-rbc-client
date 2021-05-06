@@ -1,0 +1,91 @@
+<div class="container">
+  <h1 class="d-flex">Cadastro de casos</h1>
+  <button class="btn btn-primary" (click)="newEntity()"> Novo</button>
+
+  <p-table [value]="casos" [paginator]="true" [rows]="5" [rowsPerPageOptions]="[5,10,20]">
+    <ng-template pTemplate="header">
+      <tr>
+        <th>Código</th>
+        <th>Nome</th>
+        <th>Ações</th>
+      </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-caso>
+      <tr>
+        <td>{{caso.id}}</td>
+        <td>{{caso.conteudo}}</td>
+        <td>
+          <button type="button" class="btn btn-dark" (click)="edit(caso)">
+            Editar
+          </button>
+
+          <button type="button" class="btn btn-danger" (click)="delete(caso)">
+            Remover
+          </button>
+        </td>
+      </tr>
+    </ng-template>
+  </p-table>
+
+  <p-confirmDialog></p-confirmDialog>
+  <p-dialog header="Cadastro" [(visible)]="showDialog" modal="modal" [responsive]="true">
+    <div class="row">
+      <div class="col-sm-12">
+        <div class="form-group">
+          <label for="titulo">Titulo</label>
+          <input type="text" id="titulo" name="titulo" class="form-control" [(ngModel)]="casoEdit.titulo">
+          <label for="nome">Conteudo</label>
+          <input type="text" id="nome" name="nome" class="form-control" [(ngModel)]="casoEdit.conteudo">
+          <br>
+          <button class="btn btn-primary" (click)="novoAtributo()"> Novo</button>
+          <p-table [value]="casoEdit.atributos" [paginator]="true" [rows]="5" [rowsPerPageOptions]="[5,10,20]" dataKey="id" editMode="row">
+            <ng-template pTemplate="header">
+              <tr>
+                <th>Descrição</th>
+                <th>Peso</th>
+                <th>Ações</th>
+              </tr>
+            </ng-template>
+            <ng-template pTemplate="body" let-atributo>
+              <tr>
+                <td>{{atributo.id}}</td>
+                <td>{{atributo.descricao}}</td>
+                <td>
+                  <button type="button" class="btn btn-dark" (click)="editDetail(atributo)">
+                    Editar
+                  </button>
+        
+                  <button type="button" class="btn btn-danger" (click)="deleteDetail(atributo)">
+                    Remover
+                  </button>
+                </td>
+              </tr>
+            </ng-template>
+          </p-table>
+        </div>
+      </div>
+    </div>
+    <p-footer>
+      <button type="button" class="btn btn-default" (click)="cancel()">Cancelar</button>
+      <button type="button" class="btn btn-success" (click)="save()">Salvar</button>
+    </p-footer>
+  </p-dialog>
+  
+  <p-confirmDialog></p-confirmDialog>
+  <p-dialog header="Cadastro 1" [(visible)]="showDialogDetail" modal="modal" [responsive]="true">
+    <div class="row">
+      <div class="col-sm-12">
+        <div class="form-group">
+          <label for="descricao">Descrição</label>
+          <input type="text" id="descricao" name="descricao" class="form-control" [(ngModel)]="atributoEdit.descricao">
+          <label for="peso">Peso</label>
+          <input type="number" id="peso" name="peso" class="form-control" [(ngModel)]="atributoEdit.peso">
+        </div>
+      </div>
+    </div>
+    <p-footer>
+      <button type="button" class="btn btn-default" (click)="cancelDetail()">Cancelar</button>
+      <button type="button" class="btn btn-success" (click)="saveDetail()">Salvar</button>
+    </p-footer>
+  </p-dialog>
+</div>

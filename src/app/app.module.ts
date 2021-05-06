@@ -25,11 +25,11 @@ import { AppRoutingModule } from './app-routing.module';
 import { LoginService } from './login/login.service';
 import { MenuComponent } from './menu/menu.component';
 import { PrincipalComponent } from './principal/principal.component';
-import { MarcaComponent } from './marca/marca.component';
+import { CasoComponent } from './caso/caso.component';
 import { ProdutoComponent } from './produto/produto.component';
 
 import { CategoriaService } from './categoria/categoria.service';
-import { MarcaService } from './marca/marca.service';
+import { CasoService } from './caso/caso.service';
 import { ProdutoService } from './produto/produto.service';
 import { LoginModule } from './login/login.module';
 import { CategoriaComponent } from './categoria/categoria.component';
@@ -45,7 +45,7 @@ import { HttpClientInterceptor } from './http-client-interceptor';
     MenuComponent,
     PrincipalComponent,
     CategoriaComponent,
-    MarcaComponent,
+    CasoComponent,
     ProdutoComponent  
   ],
   imports: [
@@ -76,7 +76,7 @@ import { HttpClientInterceptor } from './http-client-interceptor';
     CategoriaService,
     ConfirmationService,
     MessageService,
-    MarcaService,
+    CasoService,
     ProdutoService,
     LoginService,
     {
