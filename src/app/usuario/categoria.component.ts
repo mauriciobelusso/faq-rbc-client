@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Categoria } from '../model/categoria';
+import { Categoria } from '../model/casoSimilaridade';
 import { CategoriaService } from './categoria.service';
 import { Message, ConfirmationService, MessageService } from 'primeng/api';
 

@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 
-import { CategoriaComponent } from './categoria.component';
+import { CasoSimilaridadeComponent } from './casoSimilaridade.component';
 
-describe('GeneroComponent', () => {
-  let component: CategoriaComponent;
-  let fixture: ComponentFixture<CategoriaComponent>;
+describe('CasoSimilaridadeComponent', () => {
+  let component: CasoSimilaridadeComponent;
+  let fixture: ComponentFixture<CasoSimilaridadeComponent>;
 
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
-      declarations: [ CategoriaComponent ]
+      declarations: [ CasoSimilaridadeComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(CategoriaComponent);
+    fixture = TestBed.createComponent(CasoSimilaridadeComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

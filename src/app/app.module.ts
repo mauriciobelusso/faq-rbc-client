@@ -27,10 +27,10 @@ import { MenuComponent } from './menu/menu.component';
 import { PrincipalComponent } from './principal/principal.component';
 import { CasoComponent } from './caso/caso.component';
 
-import { CategoriaService } from './categoria/categoria.service';
+import { CasoSimilaridadeService } from './casoSimilaridade/casoSimilaridade.service';
 import { CasoService } from './caso/caso.service';
 import { LoginModule } from './login/login.module';
-import { CategoriaComponent } from './categoria/categoria.component';
+import { CasoSimilaridadeComponent } from './casoSimilaridade/casoSimilaridade.component';
 import {MatButtonModule} from '@angular/material/button';
 import {MatInputModule} from '@angular/material/input';
 import {MatDialogModule} from '@angular/material/dialog';
@@ -42,7 +42,7 @@ import { HttpClientInterceptor } from './http-client-interceptor';
     AppComponent,
     MenuComponent,
     PrincipalComponent,
-    CategoriaComponent,
+    CasoSimilaridadeComponent,
     CasoComponent
   ],
   imports: [
@@ -70,7 +70,7 @@ import { HttpClientInterceptor } from './http-client-interceptor';
     MatDialogModule
   ],
   providers: [
-    CategoriaService,
+    CasoSimilaridadeService,
     ConfirmationService,
     MessageService,
     CasoService,

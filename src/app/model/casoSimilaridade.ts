@@ -1,6 +1,6 @@
 import { Caso } from './caso';
 
-export class Categoria {    
+export class CasoSimilaridade {    
     caso: Caso;    
     similaridade: number;
 }

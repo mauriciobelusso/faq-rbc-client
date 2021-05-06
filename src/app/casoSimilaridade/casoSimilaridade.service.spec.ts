@@ -1,6 +1,6 @@
 import { TestBed } from '@angular/core/testing';
 
-import { CategoriaService } from './categoria.service';
+import { CategoriaService } from './casoSimilaridade.service';
 
 describe('CategoriaService', () => {
   beforeEach(() => TestBed.configureTestingModule({}));

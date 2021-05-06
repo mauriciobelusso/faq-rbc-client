@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { PrincipalComponent } from './principal/principal.component';
-import { CategoriaComponent } from './categoria/categoria.component';
+import { CasoSimilaridadeComponent } from './casoSimilaridade/casoSimilaridade.component';
 import { CasoComponent } from './caso/caso.component';
 import { LoginComponent } from './login/login.component';
 import { LoginService } from './login/login.service';
@@ -11,7 +11,7 @@ const routes: Routes = [{
   path: '',canActivate: [LoginService], children: [
       { path: 'principal', component: PrincipalComponent },
       { path: '', redirectTo: 'principal', pathMatch: 'full' },
-      { path: 'categoria', component: CategoriaComponent },
+      { path: 'busca', component: CasoSimilaridadeComponent },
       { 
         path: 'caso', 
         component: CasoComponent, 
