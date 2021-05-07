@@ -5,6 +5,7 @@ import { CasoSimilaridadeComponent } from './casoSimilaridade/casoSimilaridade.c
 import { CasoComponent } from './caso/caso.component';
 import { LoginComponent } from './login/login.component';
 import { LoginService } from './login/login.service';
+import { UsuarioComponent } from './usuario/usuario.component';
 
 
 const routes: Routes = [{
@@ -12,6 +13,11 @@ const routes: Routes = [{
       { path: 'principal', component: PrincipalComponent },
       { path: '', redirectTo: 'principal', pathMatch: 'full' },
       { path: 'busca', component: CasoSimilaridadeComponent },
+      { 
+        path: 'usuario', 
+        component: UsuarioComponent ,
+        data: { roles: ['ROLE_ADMIN', 'ROLE_USER'] }
+      },
       { 
         path: 'caso', 
         component: CasoComponent, 

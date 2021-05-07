@@ -31,6 +31,9 @@ import { CasoSimilaridadeService } from './casoSimilaridade/casoSimilaridade.ser
 import { CasoService } from './caso/caso.service';
 import { LoginModule } from './login/login.module';
 import { CasoSimilaridadeComponent } from './casoSimilaridade/casoSimilaridade.component';
+import { UsuarioComponent } from './usuario/usuario.component';
+import { UsuarioService } from './usuario/usuario.service';
+
 import {MatButtonModule} from '@angular/material/button';
 import {MatInputModule} from '@angular/material/input';
 import {MatDialogModule} from '@angular/material/dialog';
@@ -43,7 +46,8 @@ import { HttpClientInterceptor } from './http-client-interceptor';
     MenuComponent,
     PrincipalComponent,
     CasoSimilaridadeComponent,
-    CasoComponent
+    CasoComponent,
+    UsuarioComponent
   ],
   imports: [
     BrowserModule,
@@ -75,6 +79,7 @@ import { HttpClientInterceptor } from './http-client-interceptor';
     MessageService,
     CasoService,
     LoginService,
+    UsuarioService,
     {
       provide: HTTP_INTERCEPTORS,
       useClass: HttpClientInterceptor,
